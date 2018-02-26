@@ -1,0 +1,53 @@
+Run the iso
+
+List disk partitions
+	# fdisk -l
+Run partition manager
+	# cfdisk  /dev/sda
+Make swap partition	
+Make root partition bootable
+Mark swap partition for swap
+
+Sets partition to ext4 type
+	# mkfs.ext4 /dev/sda2
+Mount the partition
+	# mount /dev/sda2 /mnt
+Makes the swap partition
+	# mkswap /dev/sda
+Turns on the swap partition
+	# swapon /dev/sda
+set up wifi connection by running
+	# wifi-menu
+edit the mirror list
+	# nano /etc/pacman.d/mirrorlist	
+install packages
+	# pacstrap /mnt base base-devel
+Need to chroot into partition
+	# arch-chroot /mnt
+Make new password
+	#passwd
+Edit locale file
+	# nano /etc/locale.gen
+Generate locales
+	# locale-gen
+Set up timezones
+	# cd /usr/share/zoneinfo
+	# cd into the appropriate area
+Set as timezone
+	# ln -s /usr/share/zoneinfo/US/Eastern /etc/localtime
+Make a hostname
+	# echo [Name] > /etc/hostname
+Get a boot loader
+	# pacman -S grub-bios
+Install boot loader to the hard drive
+	# grub-install /dev/sda
+Make an init file which stores hardware info
+	# mkinitcpio -p linux
+Make a grub config file
+	# grub-mkconfig -o /boot/grub/grub.cfg
+Make an fstab file, which contains info on partitions
+	# genfstab /mnt >> /mnt/etc/fstab
+Unmount root device
+	# umount /mnt
+	
+	# reboot
