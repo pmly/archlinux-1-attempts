@@ -1,0 +1,23 @@
+Make a user account
+	# useradd -m -g users -s /bin/bash NAME
+	Add a password to the account
+	# passwd NAME
+	Allow use of sudo command
+	# visudo
+	under root ALL=(ALL) ALL
+	add
+	NAME ALL=(ALL) ALL
+
+Installing the desktop enviroment
+	Install display driver
+	# pacman -S xorg-server xorg-server-utils xorg-xinit
+	Install graphics driver
+	# pacman -S xf86-video-nouveau
+	# xf860-video-vesa
+	Install display manager
+	# pacman -S sddm
+	Install desktop enviroment
+	# pacman -S plasma kde-applications
+	Enable display manager to start on boot
+	# systemctl enable sddm
+	
