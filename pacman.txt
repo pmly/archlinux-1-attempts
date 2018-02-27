@@ -1,0 +1,17 @@
+pacman is the Arch Linux package manager
+
+To install a package or packages run
+	# pacman -S package_name1 package_name2 ...
+
+To remove a single package leaving all dependencies
+	# pacman -R package_name
+
+To remove a single package and all dependencies not required by other packages
+	# pacman -Rs package_name
+
+To upgrade all packages
+	# pacman -Syu
+
+To check for packages that are unneeded
+	# pacman -Qtd
+
