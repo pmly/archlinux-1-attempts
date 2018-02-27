@@ -1,0 +1,20 @@
+To add a new user
+	# useradd -m -g initial_group -G additional_groups -s login_shell username
+-m makes the user home directory /home/username
+-g defines the name or number of the users initial login group
+-G defines the other groups the user is a part of
+-s is the path and filename of the user's chosen default shell
+	# useradd -m -s /bin/bash username
+groups define who can write what files
+a member of the group that created the file are the only ones that can write to that file
+
+
+To make a new passwd
+	# passwd username
+
+To give the user sudo priveliges
+Open the config file for sudo using visudo
+	# visudo
+To give user full root privileges when using sudo, add
+	USERNAME	ALL=(ALL) ALL
+

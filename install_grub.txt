@@ -1,0 +1,13 @@
+Install the grub package
+32-bit systems
+	# grub-install --target=i386-pc /dev/sdx
+64-bit systems
+	# grub-install --target=x86_64-efi --efi-directory=esp_mount --bootloader-id=arch
+--bootlader-id is what appears in the boot options to identify the GRUB EFI boot option
+/dev/sdx is the partitioned disk
+
+Generate the main configuration file
+	# grub-mkconfig -o /boot/grub/grub.cfg
+After any changes to /etc/default/grub or /etc/grub.d/* re-run this command
+
+
